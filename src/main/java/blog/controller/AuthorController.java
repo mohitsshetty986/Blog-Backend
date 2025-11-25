@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://blog-frontend-rho-one.vercel.app")
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
