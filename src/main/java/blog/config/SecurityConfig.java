@@ -38,6 +38,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/authors/signup", "/authors/login", "/actuator/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/blogs", "/blogs/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/blogs").authenticated()
+                        .requestMatchers(HttpMethod.PATCH, "/blogs/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/blogs/**").authenticated()
                         .anyRequest().authenticated()
                 );
 
