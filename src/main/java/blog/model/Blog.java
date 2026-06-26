@@ -1,25 +1,10 @@
 package blog.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import lombok.Data;
-import lombok.Setter;
-
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
 public class Blog {
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -57,5 +42,86 @@ public class Blog {
     @PreUpdate
     protected void onUpdate() {
         this.updatedTime = LocalDateTime.now();
+    }
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(String readTime) {
+        this.readTime = readTime;
+    }
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public LocalDateTime getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(LocalDateTime updatedTime) {
+        this.updatedTime = updatedTime;
     }
 }
